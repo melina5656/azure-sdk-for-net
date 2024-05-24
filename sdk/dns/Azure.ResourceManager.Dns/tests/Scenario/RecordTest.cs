@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.Dns.Tests.Scenario
         public async Task AaaaRecordOperationTest()
         {
             var collection = _dnsZone.GetDnsAaaaRecords();
-            string aaaaRecordName = Recording.GenerateAssetName("aaaaa");
+            string aaaaRecordName = Recording.GenerateAssetName("aaaa");
             string ipv6AddressValue1 = "3f0d:8079:32a1:9c1d:dd7c:afc6:fc15:d55";
             string ipv6AddressValue2 = "3f0d:8079:32a1:9c1d:dd7c:afc6:fc15:d66";
 
