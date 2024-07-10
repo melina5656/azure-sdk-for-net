@@ -147,7 +147,7 @@ namespace Azure.ResourceManager.AppComplianceAutomation.Models
             }
             DateTimeOffset triggerTime = default;
             string timeZone = default;
-            IReadOnlyList<ResourceMetadata> resources = default;
+            IList<ResourceMetadata> resources = default;
             ReportStatus? status = default;
             IReadOnlyList<string> errors = default;
             Guid? tenantId = default;

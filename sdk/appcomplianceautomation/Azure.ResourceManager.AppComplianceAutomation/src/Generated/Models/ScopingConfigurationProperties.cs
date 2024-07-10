@@ -7,17 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using Azure.Core;
-using Azure.ResourceManager.AppComplianceAutomation.Models;
-using Azure.ResourceManager.Models;
 
-namespace Azure.ResourceManager.AppComplianceAutomation
+namespace Azure.ResourceManager.AppComplianceAutomation.Models
 {
-    /// <summary>
-    /// A class representing the SnapshotResource data model.
-    /// A class represent a AppComplianceAutomation snapshot resource.
-    /// </summary>
-    public partial class SnapshotResourceData : ResourceData
+    /// <summary> ScopingConfiguration's properties. </summary>
+    public partial class ScopingConfigurationProperties
     {
         /// <summary>
         /// Keeps track of any properties unknown to the library.
@@ -51,25 +45,26 @@ namespace Azure.ResourceManager.AppComplianceAutomation
         /// </summary>
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
-        /// <summary> Initializes a new instance of <see cref="SnapshotResourceData"/>. </summary>
-        public SnapshotResourceData()
+        /// <summary> Initializes a new instance of <see cref="ScopingConfigurationProperties"/>. </summary>
+        public ScopingConfigurationProperties()
         {
+            Answers = new ChangeTrackingList<ScopingAnswer>();
         }
 
-        /// <summary> Initializes a new instance of <see cref="SnapshotResourceData"/>. </summary>
-        /// <param name="id"> The id. </param>
-        /// <param name="name"> The name. </param>
-        /// <param name="resourceType"> The resourceType. </param>
-        /// <param name="systemData"> The systemData. </param>
-        /// <param name="properties"> Snapshot's property. </param>
+        /// <summary> Initializes a new instance of <see cref="ScopingConfigurationProperties"/>. </summary>
+        /// <param name="answers"> List of scoping question answers. </param>
+        /// <param name="provisioningState"> Azure lifecycle management. </param>
         /// <param name="serializedAdditionalRawData"> Keeps track of any properties unknown to the library. </param>
-        internal SnapshotResourceData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, SnapshotProperties properties, IDictionary<string, BinaryData> serializedAdditionalRawData) : base(id, name, resourceType, systemData)
+        internal ScopingConfigurationProperties(IList<ScopingAnswer> answers, ProvisioningState? provisioningState, IDictionary<string, BinaryData> serializedAdditionalRawData)
         {
-            Properties = properties;
+            Answers = answers;
+            ProvisioningState = provisioningState;
             _serializedAdditionalRawData = serializedAdditionalRawData;
         }
 
-        /// <summary> Snapshot's property. </summary>
-        public SnapshotProperties Properties { get; set; }
+        /// <summary> List of scoping question answers. </summary>
+        public IList<ScopingAnswer> Answers { get; }
+        /// <summary> Azure lifecycle management. </summary>
+        public ProvisioningState? ProvisioningState { get; }
     }
 }
