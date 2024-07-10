@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.AppComplianceAutomation
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
         /// <summary> Initializes a new instance of <see cref="SnapshotResourceData"/>. </summary>
-        public SnapshotResourceData()
+        internal SnapshotResourceData()
         {
         }
 
@@ -70,6 +70,6 @@ namespace Azure.ResourceManager.AppComplianceAutomation
         }
 
         /// <summary> Snapshot's property. </summary>
-        public SnapshotProperties Properties { get; set; }
+        public SnapshotProperties Properties { get; }
     }
 }

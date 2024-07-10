@@ -47,7 +47,7 @@ namespace Azure.ResourceManager.AppComplianceAutomation.Models
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
         /// <summary> Initializes a new instance of <see cref="SnapshotProperties"/>. </summary>
-        public SnapshotProperties()
+        internal SnapshotProperties()
         {
             ComplianceResults = new ChangeTrackingList<ComplianceResult>();
         }
