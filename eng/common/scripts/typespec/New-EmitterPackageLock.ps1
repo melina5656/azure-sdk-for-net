@@ -43,10 +43,6 @@ try {
       exit $LASTEXITCODE
     }
 
-    Write-Host '##[group]npm list --all'
-    npm list --all
-    Write-Host '##[endgroup]'
-
     $dest = Join-Path $OutputDirectory $LockFileName
     Write-Host "Copy package-lock.json to $dest"
     Copy-Item 'package-lock.json' $dest
